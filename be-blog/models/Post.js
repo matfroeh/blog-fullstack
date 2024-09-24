@@ -16,7 +16,7 @@ export default (sequelize) => {
     },
     cover: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
     },
     date: {
       type: DataTypes.DATE,
