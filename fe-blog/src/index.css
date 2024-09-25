@@ -1,0 +1,20 @@
+@tailwind base;  
+@tailwind components;  
+@tailwind utilities;
+
+
+
+
+body {
+    
+  background-image: url('beso.jpg');
+  background-size: cover; /* Ensures the image covers the entire background */
+  background-position: center;
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-attachment: fixed; /* Keeps the background fixed during scrolling */
+  height: 100vh;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  }
+  
+  
