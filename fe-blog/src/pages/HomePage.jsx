@@ -18,7 +18,7 @@ const HomePage = () => {
   className="min-h-screen bg-cover bg-center bg-fixed"
   style={{ backgroundImage: "url('bg.jpg')" }}
 >
-      <h1 className="text-3xl font-extrabold mb-6 text-blue-900">Blog Posts</h1>
+      <h1 className="text-3xl font-extrabold mb-6 text-black">Blog Posts</h1>
       <ul className="space-y-4">
         {posts.map(post => (
           <li key={post.id} className="border rounded-lg p-4 bg-blue-50 flex flex-col shadow-md">
@@ -30,7 +30,7 @@ const HomePage = () => {
           </li>
         ))}
       </ul>
-      <Link to="/create" className="mt-6 inline-block text-white bg-blue-900 hover:bg-blue-600 rounded px-4 py-2 shadow-lg">Create New Post</Link>
+      <Link to="/create" className="mt-6 inline-block text-white bg-black hover:bg-gray-700 rounded px-4 py-2 shadow-lg">Create New Post</Link>
     </div>
   );
 }
