@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import CreatePostPage from './pages/CreatePostPage';
 import PostDetailPage from './pages/PostDetailPage';
+import EditPostPage from './pages/EditPostPage'; // Import the new EditPostPage
 import Layout from './components/Layout';
 import './index.css';
 
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/create" element={<CreatePostPage />} />
           <Route path="/posts/:id" element={<PostDetailPage />} />
+          <Route path="/edit/:id" element={<EditPostPage />} /> {/* Add this route */}
         </Routes>
       </Layout>
     </Router>
