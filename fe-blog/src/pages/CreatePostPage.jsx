@@ -15,7 +15,7 @@ const CreatePostPage = () => {
     setLoading(true);
     try {
       // Save the post to the backend
-      const response = await axios.post('http://localhost:5000/posts', { author, title, content, cover });
+      const response = await axios.post('http://localhost:3000/posts', { author, title, content, cover });
       
       // Extract the ID of the newly created post from the response
       const newPostId = response.data.id;
