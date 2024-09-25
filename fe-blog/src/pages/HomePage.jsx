@@ -15,13 +15,13 @@ const HomePage = () => {
 
   return (
     <div
-  className="min-h-screen bg-cover bg-center bg-fixed"
+  className="bg-cover bg-center bg-fixed"
   style={{ backgroundImage: "url('beso.jpg')" }}
 >
-      <h1 className="text-3xl font-extrabold mb-6 text-black">Blog Posts</h1>
-      <ul className="space-y-4">
+      <h1 className="text-3xl font-extrabold text-black">Blog Posts</h1>
+      <ul className="flex flex-wrap gap-4">
         {posts.map(post => (
-          <li key={post.id} className="border rounded-lg p-4 bg-blue-50 flex flex-col shadow-md">
+          <li key={post.id} className="w-96 border rounded-lg p-4 bg-blue-50 shadow-md">
             <Link to={`/posts/${post.id}`}>
               <h2 className="text-2xl font-semibold text-blue-700">{post.title}</h2>
               <img src={post.cover} alt={post.title} className="my-2 rounded-md w-full" />
