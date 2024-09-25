@@ -4,17 +4,15 @@
 
 
 
-
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.1s ease;
+}
 body {
-    
-  background-image: url('beso.jpg');
-  background-size: cover; /* Ensures the image covers the entire background */
-  background-position: center;
-  background-repeat: no-repeat; /* Prevents the image from repeating */
-  background-attachment: fixed; /* Keeps the background fixed during scrolling */
-  height: 100vh;
-  margin: 0;
   font-family: 'Arial', sans-serif;
+  scroll-behavior: smooth;
   }
   
   
