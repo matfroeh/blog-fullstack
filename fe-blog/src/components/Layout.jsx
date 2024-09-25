@@ -3,9 +3,9 @@ import Navbar from './Navbar';
 
 const Layout = ({ children }) => {
   return (
-    <div className="min-h-screen flex flex-col bg-gray-100">
+    <div className="flex flex-col h-screen justify-between bg-gray-100">
       <Navbar />
-      <main className="flex-grow container mx-auto px-4 py-8">
+      <main className="h-full">
         {children}
       </main>
       <footer className="bg-black text-white p-4 text-center">
