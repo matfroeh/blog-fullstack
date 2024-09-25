@@ -7,7 +7,7 @@ const HomePage = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const response = await axios.get('http://localhost:5000/posts');
+      const response = await axios.get('http://localhost:3000/posts');
       setPosts(response.data);
     }
     fetchPosts();
