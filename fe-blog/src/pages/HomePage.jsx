@@ -16,7 +16,7 @@ const HomePage = () => {
   return (
     <div
   className="min-h-screen bg-cover bg-center bg-fixed"
-  style={{ backgroundImage: "url('bg.jpg')" }}
+  style={{ backgroundImage: "url('beso.jpg')" }}
 >
       <h1 className="text-3xl font-extrabold mb-6 text-black">Blog Posts</h1>
       <ul className="space-y-4">
