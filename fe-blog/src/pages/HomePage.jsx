@@ -1,38 +1,39 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import PostsArticel from "../components/PostsArticel";
+import PostsLoading from "../components/PostsLoading";
 
 const HomePage = () => {
   const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const fetchPosts = async () => {
+    try {
+      setIsLoading(true);
+      const response = await axios.get("http://localhost:3000/posts");
+      setPosts(response.data);
+    } catch (error) {
+      console.error("Error fetching posts:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchPosts = async () => {
-      const response = await axios.get('http://localhost:3000/posts');
-      setPosts(response.data);
-    }
-    fetchPosts();
+    const fetchData = async () => {
+      await fetchPosts();
+    };
+    fetchData();
   }, []);
 
   return (
-    <div
-  className="bg-cover bg-center bg-fixed"
-  style={{ backgroundImage: "url('beso.jpg')" }}
->
-      <h1 className="text-3xl font-extrabold text-black">Blog Posts</h1>
-      <ul className="flex flex-wrap gap-4">
-        {posts.map(post => (
-          <li key={post.id} className="w-96 border rounded-lg p-4 bg-blue-50 shadow-md">
-            <Link to={`/posts/${post.id}`}>
-              <h2 className="text-2xl font-semibold text-blue-700">{post.title}</h2>
-              <img src={post.cover} alt={post.title} className="my-2 rounded-md w-full" />
-              <p className="text-gray-700">{post.content.substring(0, 100)}...</p>
-            </Link>
-          </li>
-        ))}
-      </ul>
-      <Link to="/create" className="mt-6 inline-block text-white bg-black hover:bg-gray-700 rounded px-4 py-2 shadow-lg">Create New Post</Link>
+    <div className="divide-y divide-slate-600">
+      {isLoading && <PostsLoading />}
+
+      {!isLoading &&
+        posts.map((post) => <PostsArticel key={post.id} post={post} />)}
     </div>
   );
-}
+};
 
 export default HomePage;

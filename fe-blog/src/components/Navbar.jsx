@@ -1,20 +1,39 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="bg-black p-4 shadow-lg">
-      <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="text-white text-2xl font-bold">My Blog</Link>
-        <ul className="flex space-x-4">
-          <li>
-            <Link to="/" className="text-white hover:text-gray-300">Home</Link>
-          </li>
-          <li>
-            <Link to="/create" className="text-white hover:text-gray-300">Create Post</Link>
-          </li>
-        </ul>
-      </div>
+    <nav className="h-20 px-[2%] md:px-[5%] flex justify-between items-center border-b border-slate-600">
+      <NavLink to="/" className="text-white text-2xl font-bold flex items-center gap-2">
+      <img src="/logoWhite.svg" className="w-7" alt="" />
+        My Blog
+      </NavLink>
+      <ul className="flex space-x-4">
+        <li>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `hover:text-white 
+            ${isActive ? "text-white" : "text-slate-400"}
+            `
+            }
+          >
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/create-post"
+            className={({ isActive }) =>
+              `hover:text-white 
+            ${isActive ? "text-white" : "text-slate-400"}
+            `
+            }
+          >
+            Create Post
+          </NavLink>
+        </li>
+      </ul>
     </nav>
   );
 };

@@ -1,17 +1,16 @@
-import React from 'react';
-import Navbar from './Navbar';
+import React from "react";
+import Navbar from "./Navbar";
 
 const Layout = ({ children }) => {
   return (
-    <div className="flex flex-col h-screen justify-between bg-gray-100">
+    <div className="min-h-screen flex flex-col bg-[#0F172A]">
       <Navbar />
-      <main className="h-full">
+      <main className="flex-1 pt-5 pb-8 w-[90%] md:w-[75%] lg:w-[40%] mx-auto">
         {children}
       </main>
-      <footer className="bg-black text-white p-4 text-center">
-  <p>&copy; {new Date().getFullYear()} My Blog. All Rights Reserved.</p>
-</footer>
-
+      <footer className="text-slate-400 text-sm flex justify-center items-center h-10 border-t border-slate-600">
+        <p>&copy; {new Date().getFullYear()} My Blog. All Rights Reserved.</p>
+      </footer>
     </div>
   );
 };

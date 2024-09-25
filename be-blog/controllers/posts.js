@@ -11,10 +11,9 @@ export const getPosts = async (req, res) => {
 
 export const createPost = async (req, res) => {
   try {
-    const { author, title, content, cover, date } = req.body;
-    console.log(req.body);
-    
-    if (!content || !title || !cover) {
+    const { author, title, content, cover } = req.body;
+
+    if (!content || !title || !cover || !author) {
       return res
         .status(400)
         .json({ error: "Please provide a title, content, and image-url" });
@@ -42,13 +41,11 @@ export const getPostById = async (req, res) => {
 export const updatePost = async (req, res) => {
   try {
     const {
-      body: { author, title, content, cover, date },
+      body: { author, title, content, cover },
       params: { id },
     } = req;
-    if (!content || !title || !cover)
-      return res
-        .status(400)
-        .json({ error: "content is required" });
+    if (!content || !title || !cover || !author)
+      return res.status(400).json({ error: "content is required" });
     const post = await Post.findByPk(id);
     if (!post) return res.status(404).json({ error: "Post not found" });
     await post.update(req.body);
