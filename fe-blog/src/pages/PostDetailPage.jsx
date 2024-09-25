@@ -9,14 +9,14 @@ const PostDetailPage = () => {
 
   useEffect(() => {
     const fetchPost = async () => {
-      const response = await axios.get(`http://localhost:5000/posts/${id}`);
+      const response = await axios.get(`http://localhost:3000/posts/${id}`);
       setPost(response.data);
     }
     fetchPost();
   }, [id]);
 
   const handleDelete = async () => {
-    await axios.delete(`http://localhost:5000/posts/${id}`);
+    await axios.delete(`http://localhost:3000/posts/${id}`);
     navigate('/');
   }
 
