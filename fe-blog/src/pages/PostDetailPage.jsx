@@ -1,16 +1,20 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Reactions from "../components/Reactions";
 import TimeAgo from "../components/TimeAgo";
 import { RiEditBoxFill } from "react-icons/ri";
 import { IoMdArrowRoundBack } from "react-icons/io";
-import PostdetailLoading from "../components/PostdetailLoading";
+import PostDetailLoading from "../components/PostDetailLoading";
 import DeletePost from "../components/DeletePost";
+// import { useLoaderData } from "react-router-dom";
 
 const PostDetailPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+
+  // const postDetailFromLoaderData = useLoaderData();
+  // console.log("postsFromLoaderData:", postDetailFromLoaderData);
 
   const [post, setPost] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -42,10 +46,11 @@ const PostDetailPage = () => {
   };
 
   useEffect(() => {
+    console.log("useEffect in PostDetails called");
     fetchPosts();
   }, []);
 
-  if (isLoading) return <PostdetailLoading />;
+  if (isLoading) return <PostDetailLoading />;
   if (!post)
     return <p className="text-center text-slate-400 text-xl">Post Not Found</p>;
 
