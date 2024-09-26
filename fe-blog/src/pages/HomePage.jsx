@@ -1,6 +1,6 @@
 // import { useEffect, useState } from "react";
 // import axios from "axios";
-import PostsArticle from "../components/PostsArticle";
+import PostsArticel from "../components/PostsArticel";
 import { useLoaderData } from "react-router-dom";
 import { useState } from "react";
 
@@ -37,7 +37,7 @@ const HomePage = () => {
         {/* {!isLoading && */}
 
         {posts.map((post) => (
-          <PostsArticle key={post.id} post={post} />
+          <PostsArticel key={post.id} post={post} />
         ))}
       </div>
   );
