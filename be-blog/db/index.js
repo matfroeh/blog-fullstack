@@ -9,7 +9,7 @@ const sequelize = new Sequelize(process.env.PG_URI);
 const Post = PostModel(sequelize);
 
 try {
-  await sequelize.sync();
+  await sequelize.sync({ alter: true });
   console.log("Database synchronized");
 } catch (error) {
   console.log("An error occurred while synchronizing the database", error);
