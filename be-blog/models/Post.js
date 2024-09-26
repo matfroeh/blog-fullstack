@@ -6,18 +6,18 @@ export default (sequelize) => {
     {
       author: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
       },
       title: {
         type: DataTypes.STRING,
         allowNull: false,
       },
       content: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
       },
       cover: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
       },
     },
