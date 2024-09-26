@@ -1,9 +1,8 @@
-import React from "react";
 import Reactions from "./Reactions";
 import { Link } from "react-router-dom";
 import TimeAgo from "./TimeAgo";
 
-export default function PostsArticel({ post }) {
+export default function PostsArticle({ post }) {
   return (
     <article className="py-4">
       <Link to={`/posts/${post.id}`}>

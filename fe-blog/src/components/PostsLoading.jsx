@@ -1,6 +1,6 @@
-import React from "react";
-
 export default function PostsLoading() {
+  console.log("PostsLoading-Component called");
+  
   return (
     <>
       <div role="status" className="py-5 animate-pulse space-y-3">

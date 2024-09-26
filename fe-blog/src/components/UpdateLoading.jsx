@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function UpdateLoading() {
   return (
     <div role="status" className="py-5 animate-pulse space-y-4">

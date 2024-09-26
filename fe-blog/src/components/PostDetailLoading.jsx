@@ -1,6 +1,4 @@
-import React from 'react'
-
-export default function PostdetailLoading() {
+export default function PostDetailLoading() {
   return (
     <div role="status" className="py-5 animate-pulse space-y-3">
     <div className="flex justify-end gap-3">
