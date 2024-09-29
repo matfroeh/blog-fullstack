@@ -1,12 +1,14 @@
-import axios from "axios";
-import wrapPromise from "./wrapPromise";
+import { defer } from "react-router-dom";
 
 const postsLoader = async () => {
-  console.log("postsLoader called");
-  
   try {
-    const promise = axios.get("http://localhost:3000/posts").then(({data}) => data);
-    return wrapPromise(promise);
+    const resPromise = fetch("http://localhost:3000/posts").then((res) =>
+      res.json()
+    );
+    // console.log("postsLoader:", resPromise);
+    return defer({
+      res: resPromise,
+    });
   } catch (error) {
     console.error(error);
     return error;

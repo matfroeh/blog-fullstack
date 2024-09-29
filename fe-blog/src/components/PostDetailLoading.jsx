@@ -1,4 +1,6 @@
 export default function PostDetailLoading() {
+  console.log("PostDetailLoading-Component called");
+
   return (
     <div role="status" className="py-5 animate-pulse space-y-3">
     <div className="flex justify-end gap-3">
