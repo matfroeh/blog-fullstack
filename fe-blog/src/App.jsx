@@ -1,5 +1,4 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { useState, useEffect } from "react";
 import HomePage from "./pages/HomePage";
 import CreatePostPage from "./pages/CreatePostPage";
 import PostDetailPage from "./pages/PostDetailPage";
@@ -7,7 +6,6 @@ import EditPostPage from "./pages/EditPostPage"; // Import the new EditPostPage
 import Layout from "./components/Layout";
 import postsLoader from "./loader/postsLoader.js";
 import singlePostLoader from "./loader/singlePostLoader.js";
-import Spinner from "./components/Spinner";
 import "./index.css";
 
 const router = createBrowserRouter([
@@ -38,7 +36,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} fallbackElement={<Spinner />} />;
+  return <RouterProvider router={router} />;
 }
 
 export default App;
