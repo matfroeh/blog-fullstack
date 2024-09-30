@@ -1,45 +1,22 @@
-// import { useEffect, useState } from "react";
-// import axios from "axios";
 import PostsArticel from "../components/PostsArticel";
-import { useLoaderData } from "react-router-dom";
-import { useState } from "react";
+import { useLoaderData, Await } from "react-router-dom";
+import { Suspense } from "react";
+import PostsLoading from "../components/PostsLoading";
 
 const HomePage = () => {
-  const postsPromise = useLoaderData(); 
-  const [posts] = useState(postsPromise.read());
-  
-  // const [posts, setPosts] = useState([]);
-  // const [isLoading, setIsLoading] = useState(false);
-
-  // const fetchPosts = async () => {
-  //   try {
-  //     setIsLoading(true);
-  //     const response = await axios.get("http://localhost:3000/posts");
-  //     setPosts(response.data);
-  //   } catch (error) {
-  //     console.error("Error fetching posts:", error);
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     await fetchPosts();
-  //   };
-  //   fetchData();
-  // }, []);
+  const dataPromise = useLoaderData();
+  // console.log("dataPromise:", dataPromise);
 
   return (
-      <div className="divide-y divide-slate-600">
-        {/* {isLoading && <PostsLoading />} */}
-
-        {/* {!isLoading && */}
-
-        {posts.map((post) => (
-          <PostsArticel key={post.id} post={post} />
-        ))}
-      </div>
+    <div className="divide-y divide-slate-600">
+      <Suspense fallback={<PostsLoading />}>
+        <Await resolve={dataPromise.res}>
+          {(res) =>
+            res.map((post) => <PostsArticel key={post.id} post={post} />)
+          }
+        </Await>
+      </Suspense>
+    </div>
   );
 };
 
