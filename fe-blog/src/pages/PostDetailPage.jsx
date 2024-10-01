@@ -8,6 +8,7 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import PostDetailLoading from "../components/PostDetailLoading";
 import DeletePost from "../components/DeletePost";
 import { useLoaderData, Await } from "react-router-dom";
+import LoadingOverlay from "react-loading-overlay-ts";
 
 const PostDetailPage = () => {
   const navigate = useNavigate();
@@ -29,7 +30,14 @@ const PostDetailPage = () => {
   };
 
   return (
-    <Suspense fallback={<PostDetailLoading />}>
+    <Suspense
+      fallback={
+        <>
+          <LoadingOverlay active={true} spinner text="Loading post..." />
+          <PostDetailLoading />
+        </>
+      }
+    >
       <Await resolve={dataPromise.res.then((post) => post)}>
         {(post) => {
           return (
